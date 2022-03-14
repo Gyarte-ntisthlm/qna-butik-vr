@@ -5,14 +5,21 @@ import App from './App';
 import Questionnaire from './Questionnaire';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NotificationsProvider } from '@mantine/notifications';
+import { MantineProvider } from '@mantine/core';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} /> 
-      <Route path="/:questionnaireID/:questionnaireSecret" element={<Questionnaire />} />
-      </Routes>
+      <MantineProvider>
+        <NotificationsProvider position="bottom-right" zIndex={2077}>
+          <Routes>
+            <Route path="/" element={<App />} /> 
+            <Route path="/:id/:secret" element={<Questionnaire />} />
+          </Routes>
+        </NotificationsProvider>
+      </MantineProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

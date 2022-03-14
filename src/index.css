@@ -5,9 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: rgb(227, 255, 254);
+
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card {
+  margin: 1rem auto;
+  max-width: 800px;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.section{
+  margin-bottom: 3rem !important;
+}
+div.section.small{
+  margin-bottom: 1rem !important;
+}
+
+.notification {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.radio-group{
+  margin-bottom: 2rem;
 }
