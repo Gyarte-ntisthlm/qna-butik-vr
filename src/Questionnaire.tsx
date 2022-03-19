@@ -16,7 +16,7 @@ import WellDone from './well_done.svg';
 export default function Questionnaire(props:any) {
     const params = useParams();
 
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(0);
     const nextStep = () => setActive((current) => (current < 6 ? current + 1 : current));
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
@@ -48,13 +48,13 @@ export default function Questionnaire(props:any) {
             <div className="section">
             <Stepper active={active} onStepClick={setActive} breakpoint="sm">
                 <Stepper.Step label="First Room">
-                    <Room title="1" rating={5} />
+                    <Room title="interactive system" rating={5} textRef={stepA} sliderRef={stepA} />
                 </Stepper.Step>
                 <Stepper.Step label="Second Room">
-                    <Room title="2" rating={4} />
+                    <Room title="mixed system" rating={4} textRef={stepB} sliderRef={stepB} />
                 </Stepper.Step>
-                <Stepper.Step label="Third Room">
-                    <Room title="3" rating={2} />
+                <Stepper.Step label=" Room">
+                    <Room title="3" rating={2} textRef={stepC} sliderRef={stepC} />
                 </Stepper.Step>
                 <Stepper.Step label="General questions">
                     <GeneralQuestions1 />
@@ -91,7 +91,7 @@ const Done = () => {
             </Title>
             <Text align="center">
                 You have completed the questionnaire. <br />
-                If you have any questions go to the <a href="butik-vr.web.app/faq">FAQ page</a>.     
+                If you have any questions go to the <a href="https://butik-vr.web.app/faq">FAQ page</a>.     
             </Text>
         </>
     );

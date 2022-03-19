@@ -48,9 +48,9 @@ export const GeneralQuestions2 = () => {
                 size="md"
 
                 >
-                <Radio value="react">GUI / Billboard</Radio>
-                <Radio value="svelte">Mixed</Radio>
-                <Radio value="ng">Realistic / Intractable</Radio>
+                <Radio value="gui">GUI / Billboard</Radio>
+                <Radio value="mixed">Mixed</Radio>
+                <Radio value="interactive">Realistic / Intractable</Radio>
             </RadioGroup>
 
             <RadioGroup
@@ -62,10 +62,10 @@ export const GeneralQuestions2 = () => {
                 size="md"
 
                 >
-                <Radio value="react">Yes</Radio>
-                <Radio value="svelte">Maybe</Radio>
-                <Radio value="ng">No</Radio>
-                <Radio value="ng">I don't know</Radio>
+                <Radio value="yes">Yes</Radio>
+                <Radio value="maybe">Maybe</Radio>
+                <Radio value="no">No</Radio>
+                <Radio value="idk">I don't know</Radio>
             </RadioGroup>
 
             <RadioGroup
@@ -77,10 +77,10 @@ export const GeneralQuestions2 = () => {
                 size="md"
 
                 >
-                <Radio value="react">Yes</Radio>
-                <Radio value="svelte">Maybe</Radio>
-                <Radio value="ng">No</Radio>
-                <Radio value="ng">I don't know</Radio>
+                <Radio value="yes">Yes</Radio>
+                <Radio value="maybe">Maybe</Radio>
+                <Radio value="no">No</Radio>
+                <Radio value="idk">I don't know</Radio>
             </RadioGroup>
 
             <RadioGroup
@@ -92,10 +92,10 @@ export const GeneralQuestions2 = () => {
                 size="md"
 
                 >
-                <Radio value="react">Yes</Radio>
-                <Radio value="svelte">Maybe</Radio>
-                <Radio value="ng">No</Radio>
-                <Radio value="ng">I don't know</Radio>
+                <Radio value="yes">Yes</Radio>
+                <Radio value="maybe">Maybe</Radio>
+                <Radio value="no">No</Radio>
+                <Radio value="idk">I don't know</Radio>
             </RadioGroup>
 
             <RadioGroup
@@ -107,9 +107,9 @@ export const GeneralQuestions2 = () => {
                 size="md"
 
                 >
-                <Radio value="react">GUI / Billboard</Radio>
-                <Radio value="svelte">Mixed</Radio>
-                <Radio value="ng">Realistic / Intractable</Radio>
+                <Radio value="gui">GUI / Billboard</Radio>
+                <Radio value="mixed">Mixed</Radio>
+                <Radio value="interactive">Realistic / Intractable</Radio>
             </RadioGroup>
 
             <Textarea

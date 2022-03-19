@@ -1,5 +1,4 @@
 import { Title, Textarea, Slider, Text } from "@mantine/core";
-import { Ref } from "react";
 
 export const Room = (props: {title: string, rating: number, textRef:any, sliderRef:any}) => {
     return (

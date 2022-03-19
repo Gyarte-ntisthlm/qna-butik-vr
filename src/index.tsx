@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NotificationsProvider } from '@mantine/notifications';
 import { MantineProvider } from '@mantine/core';
+import Form from './components/Form';
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Routes>
             <Route path="/" element={<App />} /> 
             <Route path="/:id/:secret" element={<Questionnaire />} />
+            <Route path="/form/:id/:secret" element={<Form />} />
           </Routes>
         </NotificationsProvider>
       </MantineProvider>
