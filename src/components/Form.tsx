@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import '../form.css';
 
 // Pages
 import OtherInformation from './OtherInformation';
 import Room from './Room';
 import GeneralQuestions from './GeneralQuestions';
-import { Pagination } from '@mantine/core';
+import { Button, Pagination } from '@mantine/core';
 import GeneralQuestions2 from './GeneralQuestions2';
 
 
@@ -13,7 +14,7 @@ function Form() {
     const [page, setPage] = useState(1);
 
     // This array will be replaced by the prefixes taken from the database.
-    const FormTitles = ["First Name", "Last Name", "Email", "Phone Number", "Password"];
+    const FormTitles = ["1st Room Evaluation", "2nd Room Evaluation", "3rd Room Evaluation", "Some General Questions", "More General Questions", "Other Information (Optional)"];
 
 
     const [formData, setFormData] = useState({
@@ -59,11 +60,11 @@ function Form() {
     const DisplayContent = () => {
         switch (page - 1) {
             case 0:
-               return <Room form={formData} place={page - 1} setFormData={setFormData}/>;
+                return <Room form={formData} place={page - 1} setFormData={setFormData} />;
             case 1:
-                return <Room form={formData} place={page - 1} setFormData={setFormData}/>;
+                return <Room form={formData} place={page - 1} setFormData={setFormData} />;
             case 2:
-                return <Room form={formData} place={page - 1} setFormData={setFormData}/>;
+                return <Room form={formData} place={page - 1} setFormData={setFormData} />;
             case 3:
                 return <GeneralQuestions />;
             case 4:
@@ -75,24 +76,27 @@ function Form() {
         }
     }
 
-  return (
-    <div>
-        <div className='content'>
-            <div className='form-container'>
-                <div className='header'>
-                    <h1>{FormTitles[page - 1]}</h1>
-                    <p>It's free and always will be.</p>
-                </div>
-                <div className='form-content'>
-                    { DisplayContent() }
-                </div>
-                <div className='form-navigation'>
-                    <Pagination page={page} onChange={setPage} total={6} />
+    return (
+        <div>
+            <div className='content'>
+                <div className='form-container'>
+                    <div className="form-content">
+                    <div className='header'>
+                        <h1>{FormTitles[page - 1]}</h1>
+                        <hr />
+                    </div>
+                    <div className='form-content'>
+                        {DisplayContent()}
+                    </div>
+                    </div>
+                    <div className='form-navigation'>
+                        <Button fullWidth onClick={() => { if(page === FormTitles.length) {alert("SUBMITTING"); console.log(formData)} else {setPage((current) => current + 1)} }}> {page === FormTitles.length ? "Submit" : "Next"} </Button>
+                        <Pagination page={page} onChange={setPage} total={6} />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Form
