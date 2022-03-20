@@ -36,3 +36,18 @@
 .form-navigation > * {
     margin: 10px;
 }
+
+.radio-label{
+    display: inline-block;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #212529;
+    word-break: break-word;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.radio-group{
+    margin-top: 1rem;
+}

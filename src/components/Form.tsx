@@ -40,6 +40,7 @@ function Form() {
         generalQuestions: {
             anyImprovements: "",
             howDoYouPlay: "",
+            experience: "Veteran",
         },
         generalQuestions2: {
             system: "",
@@ -66,9 +67,9 @@ function Form() {
             case 2:
                 return <Room form={formData} place={page - 1} setFormData={setFormData} />;
             case 3:
-                return <GeneralQuestions />;
+                return <GeneralQuestions2 props={formData} setFormData={setFormData}/>;
             case 4:
-                return <GeneralQuestions2 />;
+                return <GeneralQuestions props={formData} form={formData} setFormData={setFormData} />;
             case 5:
                 return <OtherInformation />;
             default:
@@ -83,7 +84,6 @@ function Form() {
                     <div className="form-content">
                     <div className='header'>
                         <h1>{FormTitles[page - 1]}</h1>
-                        <hr />
                     </div>
                     <div className='form-content'>
                         {DisplayContent()}
