@@ -27,19 +27,19 @@ function Form() {
     const [formData, setFormData] = useState({
         order: "gui-int",
         interactiveRoom: {
-            title: "The Interactive Room",
+            title: "The Interactive / Realistic Room",
             description: "",
             rating: 0,
             text: "",
         },
         mixedRoom: {
-            title: "MIXED ROOM",
+            title: "The Mixed Room",
             description: "",
             rating: 0,
             text: "",
         },
         guiRoom: {
-            title: "GUI ROOM",
+            title: "The GUI / Billboard Room",
             description: "",
             rating: 0,
             text: "",
@@ -118,48 +118,37 @@ function Form() {
         // get the user's data from firebase
         login(parsedID, parsedSecret).then((user) => {
             getData(globalUser).then((data) => {
-
-                // TODO: Set the relevant form data from the data
-                console.log(data);
-
-                if(data === undefined) throw new Error("No data found")
                 
-                // setFormData({
-                //     ...formData,
-                //     order: data.order,
-                //     interactiveRoom: {
-                //         ...formData.interactiveRoom,
-                //         title: `The ${data.collectedData.interactiveRoom.Title} Room`,
-                //         rating: data.collectedRoom.interactiveRoom.Rating,
-                //     },
-                //     mixedRoom: {
-                //         ...formData.mixedRoom,
-                //         title: `The ${data.collectedData.mixedRoom.Title} Room`,
-                //         rating: data.collectedRoom.mixedRoom.Rating,
-                //     },
-                //     guiRoom: {
-                //         ...formData.guiRoom,
-                //         title: `The ${data.collectedData.guiRoom.Title} Room`,
-                //         rating: data.collectedRoom.guiRoom.Rating,
-                //     }
-                // });
-                console.log(
-                    data.order,
-                    data.collectedData,
-                    data.collectedData.guiRoom,
-                    data.collectedData.guiRoom.Title,
-                    data.collectedData.guiRoom.Rating,
-                );
+                if(data === undefined) throw new Error("No data found")
+    
+                setFormData({
+                    ...formData,
+                    order: data.order,
+                    interactiveRoom: {
+                        ...formData.interactiveRoom,
+                        rating: data.collectedData.interactiveRoom.Rating,
+                    },
+                    mixedRoom: {
+                        ...formData.mixedRoom,
+                        rating: data.collectedData.mixedRoom.Rating,
+                    },
+                    guiRoom: {
+                        ...formData.guiRoom,
+                        rating: data.collectedData.guiRoom.Rating,
+                    }
+                });
 
                 // Hide the mantine loading notification
                 // Remove the skeleton animation
                 setInitLoading(false);
                 notifications.hideNotification('loadingData');
-            }).catch(err => {
+            })
+            .catch(err => {
                 notifications.showNotification({
                     title: 'Error',
                     icon: <X size={18} />,
-                    message: 'Failed to load data from Butik VR.',
+                    message: err.message + " " + err.code,
+                    autoClose: false,
                     color: 'red'
                 });
             });
