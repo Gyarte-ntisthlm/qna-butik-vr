@@ -1,56 +1,42 @@
 import { forwardRef } from 'react';
 import { Group, Avatar, Text, Select } from '@mantine/core';
-import eu from '../images/european-union.png';
-import us from '../images/united-states.png';
-import africa from '../images/south-africa.png';
-import oceania from '../images/australia.png';
-import japan from '../images/japan.png';
-import sa from '../images/brazil.png';
-import arabia from '../images/arabia.png';
+import europe from '../images/europe.svg';
+import na from '../images/north-america.svg';
+import africa from '../images/africa.svg';
+import oceania from '../images/oceania.svg';
+import japan from '../images/asia.svg';
+import sa from '../images/south-america.svg';
 
 const data = [
   {
-    image: us,
-    label: 'North America',
-    value: 'north-america',
-    description: '',
-  },
-
-  {
-    image: eu,
+    image: europe,
     label: 'Europe',
     value: 'europe',
-    description: '',
+  },
+  {
+    image: na,
+    label: 'North America',
+    value: 'north-america',
   },
   {
     image: japan,
     label: 'Asia',
     value: 'asia',
-    description: '',
-  },
-  {
-    image: arabia,
-    label: 'Arabia',
-    value: 'arabia',
-    description: '',
   },
   {
     image: africa,
     label: 'Africa',
     value: 'africa',
-    description: '',
   },
   {
     image: oceania,
     label: 'Oceania',
     value: 'oceania',
-    description: '',
   },
   {
     image: sa,
     label: 'South America',
     value: 'south-america',
-    description: '',
   },
 ];
 
