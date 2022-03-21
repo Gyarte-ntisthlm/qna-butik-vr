@@ -12,7 +12,6 @@ function GeneralQuestions(props: any, form: any, setFormData: Function) {
           description="Please let us know if you have any suggestions for us to improve the experience."
           radius="md"
           size="md"
-          required
           autosize
           minRows={4}
           maxRows={6}
@@ -28,7 +27,6 @@ function GeneralQuestions(props: any, form: any, setFormData: Function) {
           description="Please describe way of playing VR; Are you observant of everything around you? Grab everything you see? Explore every corner of the room? Do you take 5 minutes looking at everything before you act? etc."
           radius="md"
           size="md"
-          required
           autosize
           minRows={4}
           maxRows={6}
@@ -46,7 +44,6 @@ function GeneralQuestions(props: any, form: any, setFormData: Function) {
         ]}
           value={props.form.generalQuestions.experience}
           onChange={(e: any) => {
-            console.log(e);
             props.setFormData({ ...props.form, generalQuestions: { ...props.form.generalQuestions, experience: e } })
           }}
         />

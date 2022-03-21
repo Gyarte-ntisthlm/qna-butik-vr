@@ -3,10 +3,6 @@ import React, { useEffect } from 'react';
 
 function GeneralQuestions2(props: any, form: any, setFormData: Function) {
 
-    useEffect(() => {
-        console.log(props, form)
-    }, [])
-
     return (
         <>
             <div className='radio-group'>
@@ -19,7 +15,6 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                 ]}
                     value={props.props.generalQuestions2.interactiveUsability}
                     onChange={(e: any) => {
-                        console.log(e);
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, interactiveUsability: e } })
                     }}
                 />
@@ -35,7 +30,6 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                 ]}
                     value={props.props.generalQuestions2.mixedUsability}
                     onChange={(e: any) => {
-                        console.log(e);
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, mixedUsability: e } })
                     }}
                 />
@@ -51,7 +45,6 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                 ]}
                     value={props.props.generalQuestions2.guiUsability}
                     onChange={(e: any) => {
-                        console.log(e);
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, guiUsability: e } })
                     }}
                 />
@@ -66,7 +59,6 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                 ]}
                     value={props.props.generalQuestions2.system}
                     onChange={(e: any) => {
-                        console.log(e);
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, system: e } })
                     }}
                 />
@@ -81,7 +73,6 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                 ]}
                     value={props.props.generalQuestions2.preference}
                     onChange={(e: any) => {
-                        console.log(e);
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, preference: e } })
                     }}
                 />

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NotificationsProvider } from '@mantine/notifications';
 import { MantineProvider } from '@mantine/core';
 import Form from './components/Form';
+import Success from './components/Success';
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Routes>
             <Route path="/" element={<App />} /> 
             <Route path="/:id/:secret" element={<Form />} />
+            <Route path="thank-you" element={<Success />} />
           </Routes>
         </NotificationsProvider>
       </MantineProvider>

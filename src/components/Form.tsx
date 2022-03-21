@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../form.css';
 import { getData, updateData, login, globalUser } from '../firebase'
 
@@ -13,12 +13,13 @@ import OtherInformation from './OtherInformation';
 import Room from './Room';
 import GeneralQuestions from './GeneralQuestions';
 import GeneralQuestions2 from './GeneralQuestions2';
-import { Check } from 'tabler-icons-react';
+import { Check, X } from 'tabler-icons-react';
 
 
 function Form() {
     const notifications = useNotifications();
-
+    const navigate = useNavigate();
+    
     const [page, setPage] = useState(1);
     const [intiLoading, setInitLoading] = useState(true);
 
@@ -58,8 +59,7 @@ function Form() {
         },
         otherInformation: {
             age: "",
-            nationality: "",
-            okWithSharingOfFormData: false,
+            region: "",
         }
     });
 
@@ -77,7 +77,7 @@ function Form() {
             case 4:
                 return <GeneralQuestions props={formData} form={formData} setFormData={setFormData} />;
             case 5:
-                return <OtherInformation />;
+                return <OtherInformation props={formData} setFormData={setFormData} />;
             default:
                 return <h1>Error</h1>;
         }
@@ -96,12 +96,18 @@ function Form() {
             message: 'Fetching data from Butik VR.',
             loading: true,
             disallowClose: true,
-          })
+        })
 
         // parse the id and secret from the url using react-router. 
         // decode it using the base64 library
         if (!id || !secret) {
-            alert("Invalid URL");
+            notifications.showNotification({
+                id: 'error',
+                title: 'Error',
+                message: 'No id or secret found in url.',
+                color: 'red',
+                icon: 'times',
+            })
             return;
         }
 
@@ -111,30 +117,63 @@ function Form() {
         // login into firebase using the credentials from the url
         // get the user's data from firebase
         login(parsedID, parsedSecret).then((user) => {
-            console.log(parsedID, parsedSecret, "Logged in!", user);
             getData(globalUser).then((data) => {
-                console.log(data);
 
                 // TODO: Set the relevant form data from the data
-                // setFormData(data);
+                console.log(data);
+
+                if(data === undefined) throw new Error("No data found")
+                
+                // setFormData({
+                //     ...formData,
+                //     order: data.order,
+                //     interactiveRoom: {
+                //         ...formData.interactiveRoom,
+                //         title: `The ${data.collectedData.interactiveRoom.Title} Room`,
+                //         rating: data.collectedRoom.interactiveRoom.Rating,
+                //     },
+                //     mixedRoom: {
+                //         ...formData.mixedRoom,
+                //         title: `The ${data.collectedData.mixedRoom.Title} Room`,
+                //         rating: data.collectedRoom.mixedRoom.Rating,
+                //     },
+                //     guiRoom: {
+                //         ...formData.guiRoom,
+                //         title: `The ${data.collectedData.guiRoom.Title} Room`,
+                //         rating: data.collectedRoom.guiRoom.Rating,
+                //     }
+                // });
+                console.log(
+                    data.order,
+                    data.collectedData,
+                    data.collectedData.guiRoom,
+                    data.collectedData.guiRoom.Title,
+                    data.collectedData.guiRoom.Rating,
+                );
 
                 // Hide the mantine loading notification
                 // Remove the skeleton animation
                 setInitLoading(false);
                 notifications.hideNotification('loadingData');
+            }).catch(err => {
+                notifications.showNotification({
+                    title: 'Error',
+                    icon: <X size={18} />,
+                    message: 'Failed to load data from Butik VR.',
+                    color: 'red'
+                });
             });
         }).catch(err => {
-            
+
             // Show the mantine error notification
             notifications.showNotification({
                 id: 'error',
                 title: 'Error',
+                icon: <X size={18} />,
                 message: 'Could not log in to Butik VR.',
                 color: 'red',
             })
-
-            console.log(err);
-            alert("Invalid Credentials");
+            notifications.hideNotification('loadingData');
         });
     }, []);
 
@@ -162,10 +201,24 @@ function Form() {
                 autoClose: 50000,
                 icon: <Check size={18} />,
             })
+
             notifications.hideNotification('uploadingData');
+
+            // Change the page to the thank you page
+            navigate("/thank-you");
+            
+
         }).catch(err => {
-            console.log(err);
-            // TODO: Show the mantine error notification
+            // Show the mantine error notification
+            notifications.showNotification({
+                id: 'error',
+                title: 'Error',
+                icon: <X size={18} />,
+                message: 'Failed to upload data to Butik VR.',
+                color: 'red',
+            })
+
+            notifications.hideNotification('uploadingData');
         });
     }
 
@@ -191,4 +244,4 @@ function Form() {
     )
 }
 
-export default Form
+export default Form;
