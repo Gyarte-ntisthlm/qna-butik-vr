@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Questionnaire from './Questionnaire';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NotificationsProvider } from '@mantine/notifications';
@@ -17,8 +16,7 @@ ReactDOM.render(
         <NotificationsProvider position="bottom-right" zIndex={2077}>
           <Routes>
             <Route path="/" element={<App />} /> 
-            <Route path="/:id/:secret" element={<Questionnaire />} />
-            <Route path="/form/:id/:secret" element={<Form />} />
+            <Route path="/:id/:secret" element={<Form />} />
           </Routes>
         </NotificationsProvider>
       </MantineProvider>

@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
+import { getFirestore, collection, getDoc, doc, updateDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,25 +25,29 @@ const auth = getAuth(app);
 const dataCollection = collection(db, "data");
 
 // Helper functions
+export let globalUser: UserCredential | null = null;
 
 // Login with email and password
-export const login = (id: string, secret: string) => {
-  return signInWithEmailAndPassword(auth, id, secret);
+export const login = async (id: string, secret: string) => {
+  await signInWithEmailAndPassword(auth, id, secret).then((user) => {
+    globalUser = user;
+    return user;
+  });
 };
 
-export async function getData() {
-  let data;
-    onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          // Get the data that belongs to the user
-          // Return that data.
-          data = getDoc(doc(dataCollection, user.uid));
-        } else {
-          // Return null
-          data = null;
-        }
-      });
-    return data;
+export async function getData(user: any) {
+  const docRef = doc(dataCollection, user.user.uid);
+  const docSnap = await getDoc(docRef);
+
+  return docSnap.data();
 }
+
+export async function updateData(user: any, data: any) {
+  const docRef = doc(dataCollection, user.user.uid);
+  const docSnap = await updateDoc(docRef, data);
+
+  return docSnap;
+}
+
 
 export default app;

@@ -21,10 +21,11 @@ function GeneralQuestions(props: any, form: any, setFormData: Function) {
         />
       </div>
       <div className='section'>
+        {/*TODO:This might be reworked and or rephrased */}
         <Textarea
           placeholder="Your comment"
           label="How do you usually play VR?"
-          description="Please describe way of playing VR; Are you observant of everything around you? Grab everything you see? Explore every corner of the room? Do you take 5 minutes looking at everything before yoy act? etc."
+          description="Please describe way of playing VR; Are you observant of everything around you? Grab everything you see? Explore every corner of the room? Do you take 5 minutes looking at everything before you act? etc."
           radius="md"
           size="md"
           required

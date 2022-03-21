@@ -51,3 +51,11 @@
 .radio-group{
     margin-top: 1rem;
 }
+
+.notification-area{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    padding: 2rem;
+}
