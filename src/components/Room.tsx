@@ -8,7 +8,7 @@ function Room(form: any, place: any, setFormData: Function) {
       <Textarea
         placeholder="Your comment"
         label={form.form.mixedRoom.title}
-        description="Please describe your thoughts of the first room you entered."
+        description={form.form.mixedRoom.description}
         radius="md"
         size="md"
         required
@@ -26,7 +26,7 @@ function Room(form: any, place: any, setFormData: Function) {
       <Textarea
         placeholder="Your comment"
         label={form.form.interactiveRoom.title}
-        description="Please describe your thoughts of the first room you entered."
+        description={form.form.interactiveRoom.description}
         radius="md"
         size="md"
         required
@@ -45,7 +45,7 @@ function Room(form: any, place: any, setFormData: Function) {
       <Textarea
         placeholder="Your comment"
         label={form.form.guiRoom.title}
-        description="Please describe your thoughts of the first room you entered."
+        description={form.form.guiRoom.description}
         radius="md"
         size="md"
         required
