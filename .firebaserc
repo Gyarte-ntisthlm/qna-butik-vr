@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "site": "qna-butik-vr",
+    "default": "butik-vr"
+  }
+}
