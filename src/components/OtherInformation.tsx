@@ -58,21 +58,6 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
   )
 );
 
-function Demo() {
-  return (
-    <Select
-      label="Choose employee of the month"
-      placeholder="Pick one"
-      itemComponent={SelectItem}
-      data={data}
-      searchable
-      maxDropdownHeight={400}
-      nothingFound="Nothing here"
-    />
-  );
-}
-
-
 function OtherInformation(props:any, form:any, setFormData:Function) {
   return (
     <>
