@@ -26,19 +26,19 @@ function Form() {
     const FormTitles = ["1st Room Evaluation", "2nd Room Evaluation", "3rd Room Evaluation", "Some General Questions", "More General Questions", "Other Information (Optional)"];
     const [formData, setFormData] = useState({
         order: "gui-int",
-        interactiveRoom: {
+        Interactive: {
             title: "The Interactive / Realistic Room",
             description: "",
             rating: 0,
             text: "",
         },
-        mixedRoom: {
+        Mixed: {
             title: "The Mixed Room",
             description: "",
             rating: 0,
             text: "",
         },
-        guiRoom: {
+        GUI: {
             title: "The GUI / Billboard Room",
             description: "",
             rating: 0,
@@ -116,7 +116,16 @@ function Form() {
 
         // login into firebase using the credentials from the url
         // get the user's data from firebase
-        login(parsedID, parsedSecret).then((user) => {
+        login(parsedID, parsedSecret).then((user:any) => {
+            notifications.showNotification({
+                id: 'login',    
+                title: 'Authentication Successful!',
+                message: user.displayName,
+                color: 'green',
+                autoClose: 500,
+                icon: <Check size={18} />,
+            })
+
             getData(globalUser).then((data) => {
                 
                 if(data === undefined) throw new Error("No data found")
@@ -124,17 +133,17 @@ function Form() {
                 setFormData({
                     ...formData,
                     order: data.order,
-                    interactiveRoom: {
-                        ...formData.interactiveRoom,
-                        rating: data.collectedData.interactiveRoom.Rating,
+                    Interactive: {
+                        ...formData.Interactive,
+                        rating: data.collectedData.Interactive.Rating,
                     },
-                    mixedRoom: {
-                        ...formData.mixedRoom,
-                        rating: data.collectedData.mixedRoom.Rating,
+                    Mixed: {
+                        ...formData.Mixed,
+                        rating: data.collectedData.Mixed.Rating,
                     },
-                    guiRoom: {
-                        ...formData.guiRoom,
-                        rating: data.collectedData.guiRoom.Rating,
+                    GUI: {
+                        ...formData.GUI,
+                        rating: data.collectedData.GUI.Rating,
                     }
                 });
 
@@ -159,12 +168,12 @@ function Form() {
                 id: 'error',
                 title: 'Error',
                 icon: <X size={18} />,
-                message: 'Could not log in to Butik VR.',
+                message: err.message + " " + err.code,
                 color: 'red',
             })
             notifications.hideNotification('loadingData');
         });
-    }, []);
+    }, [formData, id, notifications, secret]);
 
     const handleSubmit = () => {
 
