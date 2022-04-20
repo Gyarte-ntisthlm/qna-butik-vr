@@ -3,59 +3,59 @@ import React from 'react'
 
 function Room(form: any, place: any, setFormData: Function) {
 
-  function mixedRoom(): JSX.Element {
+  function Mixed(): JSX.Element {
     return (<>
       <Textarea
         placeholder="Your comment"
-        label={form.form.mixedRoom.title}
-        description={form.form.mixedRoom.description}
+        label={form.form.Mixed.title}
+        description={form.form.Mixed.description}
         radius="md"
         size="md"
         required
         autosize
-        value={form.form.mixedRoom.text}
-        onChange={(e: any) => form.setFormData({ ...form.form, mixedRoom: { ...form.form.mixedRoom, text: e.target.value } })}
+        value={form.form.Mixed.text}
+        onChange={(e: any) => form.setFormData({ ...form.form, Mixed: { ...form.form.Mixed, text: e.target.value } })}
         minRows={4}
         maxRows={6} />
-      <Text size="xs"> In game you rated this a: {form.form.mixedRoom.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.Mixed.rating}/5</Text>
     </>);
   }
 
-  function interactiveRoom(): JSX.Element {
+  function Interactive(): JSX.Element {
     return (<>
       <Textarea
         placeholder="Your comment"
-        label={form.form.interactiveRoom.title}
-        description={form.form.interactiveRoom.description}
+        label={form.form.Interactive.title}
+        description={form.form.Interactive.description}
         radius="md"
         size="md"
         required
         autosize
-        value={form.form.interactiveRoom.text}
-        onChange={(e: any) => form.setFormData({ ...form.form, interactiveRoom: { ...form.form.interactiveRoom, text: e.target.value } })}
+        value={form.form.Interactive.text}
+        onChange={(e: any) => form.setFormData({ ...form.form, Interactive: { ...form.form.Interactive, text: e.target.value } })}
         minRows={4}
         maxRows={6} />
-      <Text size="xs"> In game you rated this a: {form.form.interactiveRoom.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.Interactive.rating}/5</Text>
 
     </>);
   }
 
-  function guiRoom(): JSX.Element {
+  function GUI(): JSX.Element {
     return (<>
       <Textarea
         placeholder="Your comment"
-        label={form.form.guiRoom.title}
-        description={form.form.guiRoom.description}
+        label={form.form.GUI.title}
+        description={form.form.GUI.description}
         radius="md"
         size="md"
         required
         autosize
-        value={form.form.guiRoom.text}
-        onChange={(e: any) => form.setFormData({ ...form.form, guiRoom: { ...form.form.guiRoom, text: e.target.value } })}
+        value={form.form.GUI.text}
+        onChange={(e: any) => form.setFormData({ ...form.form, GUI: { ...form.form.GUI, text: e.target.value } })}
         minRows={4}
         maxRows={6}
       />
-      <Text size="xs"> In game you rated this a: {form.form.guiRoom.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.GUI.rating}/5</Text>
 
     </>);
   }
@@ -63,16 +63,16 @@ function Room(form: any, place: any, setFormData: Function) {
   let referenceImageURL = "";
 
   function getRoom(): JSX.Element {
-    if (form.form.order === "int-gui" && form.place === 0) { referenceImageURL = ""; return interactiveRoom(); }
+    if (form.form.order === "int-gui" && form.place === 0) { referenceImageURL = ""; return Interactive(); }
 
-    if (form.form.order === 'gui-int' && form.place === 0) { referenceImageURL = ""; return guiRoom(); }
+    if (form.form.order === 'gui-int' && form.place === 0) { referenceImageURL = ""; return GUI(); }
 
-    if (form.form.order === 'gui-int' && form.place === 2) { referenceImageURL = ""; return interactiveRoom(); }
+    if (form.form.order === 'gui-int' && form.place === 2) { referenceImageURL = ""; return Interactive(); }
 
-    if (form.form.order === 'int-gui' && form.place === 2) { referenceImageURL = ""; return guiRoom(); }
+    if (form.form.order === 'int-gui' && form.place === 2) { referenceImageURL = ""; return GUI(); }
 
     referenceImageURL = "";
-    return mixedRoom();
+    return Mixed();
   }
 
   return (

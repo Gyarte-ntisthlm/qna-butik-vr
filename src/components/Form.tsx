@@ -117,6 +117,7 @@ function Form() {
         // login into firebase using the credentials from the url
         // get the user's data from firebase
         login(parsedID, parsedSecret).then((user:any) => {
+            console.log(user);
             notifications.showNotification({
                 id: 'login',    
                 title: 'Authentication Successful!',
@@ -173,7 +174,7 @@ function Form() {
             })
             notifications.hideNotification('loadingData');
         });
-    }, [formData, id, notifications, secret]);
+    }, []);
 
     const handleSubmit = () => {
 

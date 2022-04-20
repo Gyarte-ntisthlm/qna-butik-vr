@@ -6,8 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url('https://www.roadtovr.com/wp-content/uploads/2021/06/a-township-tale-1.jpg');
- 
+  background-color: #fff;
   overflow: hidden;
 }
 
