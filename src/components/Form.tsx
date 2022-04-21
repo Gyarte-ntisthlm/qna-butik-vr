@@ -27,7 +27,7 @@ function Form() {
     const [formData, setFormData] = useState({
         order: "gui-int",
         Interactive: {
-            title: "The Interactive / Realistic Room",
+            title: "The Interactable Room",
             description: "",
             rating: 0,
             text: "",
@@ -39,7 +39,7 @@ function Form() {
             text: "",
         },
         GUI: {
-            title: "The GUI / Billboard Room",
+            title: "The GUI Room",
             description: "",
             rating: 0,
             text: "",

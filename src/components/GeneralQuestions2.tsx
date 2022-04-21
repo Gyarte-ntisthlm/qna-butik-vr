@@ -6,7 +6,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
     return (
         <>
             <div className='radio-group'>
-                <label htmlFor="interactive-usa" className='radio-label'>Does the realistic / interactive shop system feel usable?</label>
+                <label htmlFor="interactive-usa" className='radio-label'>Does the interactable shop system feel usable?</label>
                 <SegmentedControl id="interactive-usa" fullWidth color="blue" aria-required data={[
                     { value: 'yes', label: 'Yes' },
                     { value: 'maybe', label: 'Maybe' },
@@ -36,7 +36,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
             </div>
             
             <div className='radio-group'>
-                <label htmlFor="real-usa" className='radio-label'>Does the GUI / billboard shop system feel usable?</label>
+                <label htmlFor="real-usa" className='radio-label'>Does the GUI shop system feel usable?</label>
                 <SegmentedControl id="real-usa" fullWidth color="blue" aria-required data={[
                     { value: 'yes', label: 'Yes' },
                     { value: 'maybe', label: 'Maybe' },
@@ -53,9 +53,9 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
             <div className='radio-group' style={{marginTop:"4rem"}}>
                 <label htmlFor="system" className='radio-label'>What system do you prefer?</label>
                 <SegmentedControl id="system" fullWidth color="blue" aria-required data={[
-                    { value: 'interactive', label: 'Realistic / Intractable' },
+                    { value: 'interactive', label: 'Interactable' },
                     { value: 'mixed', label: 'Mixed' },
-                    { value: 'gui', label: 'GUI / Billboard' }
+                    { value: 'gui', label: 'GUI' }
                 ]}
                     value={props.props.generalQuestions2.system}
                     onChange={(e: any) => {
@@ -65,11 +65,11 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
             </div>
             
             <div className='radio-group'>
-                <label htmlFor="system2" className='radio-label'>What shop system would you find most useful in other VR games?</label>
+                <label htmlFor="system2" className='radio-label'>From an immersion perspective, what system do you prefer?</label>
                 <SegmentedControl id="system2" fullWidth color="blue" aria-required data={[
-                    { value: 'interactive', label: 'Realistic / Intractable' },
+                    { value: 'interactive', label: 'Interactable' },
                     { value: 'mixed', label: 'Mixed' },
-                    { value: 'gui', label: 'GUI / Billboard' }
+                    { value: 'gui', label: 'GUI' }
                 ]}
                 value={props.props.generalQuestions2.preference}
                     onChange={(e: any) => {
