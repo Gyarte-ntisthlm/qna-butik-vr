@@ -13,7 +13,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                     { value: 'no', label: 'No' },
                     { value: 'idk', label: "I Don't know" },
                 ]}
-                    value={'yes'}
+                    value={props.props.generalQuestions2.interactiveUsability}
                     onChange={(e: any) => {
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, interactiveUsability: e } })
                     }}
@@ -28,7 +28,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                     { value: 'no', label: 'No' },
                     { value: 'idk', label: "I Don't know" },
                 ]}
-                    value={'yes'}
+                    value={props.props.generalQuestions2.mixedUsability}
                     onChange={(e: any) => {
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, mixedUsability: e } })
                     }}
@@ -43,7 +43,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                     { value: 'no', label: 'No' },
                     { value: 'idk', label: "I Don't know" },
                 ]}
-                    value={'yes'}
+                    value={props.props.generalQuestions2.guiUsability}
                     onChange={(e: any) => {
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, guiUsability: e } })
                     }}
@@ -57,7 +57,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                     { value: 'mixed', label: 'Mixed' },
                     { value: 'gui', label: 'GUI / Billboard' }
                 ]}
-                    value={'interactive'}
+                    value={props.props.generalQuestions2.system}
                     onChange={(e: any) => {
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, system: e } })
                     }}
@@ -71,7 +71,7 @@ function GeneralQuestions2(props: any, form: any, setFormData: Function) {
                     { value: 'mixed', label: 'Mixed' },
                     { value: 'gui', label: 'GUI / Billboard' }
                 ]}
-                value={'interactive'}
+                value={props.props.generalQuestions2.preference}
                     onChange={(e: any) => {
                         props.setFormData({ ...props.props, generalQuestions2: { ...props.props.generalQuestions2, preference: e } })
                     }}

@@ -50,11 +50,11 @@ function Form() {
             experience: "Veteran",
         },
         generalQuestions2: {
-            system: "",
-            interactiveUsability: "",
-            mixedUsability: "",
-            guiUsability: "",
-            preference: "",
+            system: "interactive",
+            interactiveUsability: "yes",
+            mixedUsability: "yes",
+            guiUsability: "yes",
+            preference: "interactive",
             preferenceElaboration: "",
         },
         otherInformation: {
