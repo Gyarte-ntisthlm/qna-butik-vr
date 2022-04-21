@@ -17,7 +17,7 @@ function Room(form: any, place: any, setFormData: Function) {
         onChange={(e: any) => form.setFormData({ ...form.form, Mixed: { ...form.form.Mixed, text: e.target.value } })}
         minRows={4}
         maxRows={6} />
-      <Text size="xs"> In game you rated this a: {form.form.Mixed.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.Mixed.rating}/3</Text>
     </>);
   }
 
@@ -35,7 +35,7 @@ function Room(form: any, place: any, setFormData: Function) {
         onChange={(e: any) => form.setFormData({ ...form.form, Interactive: { ...form.form.Interactive, text: e.target.value } })}
         minRows={4}
         maxRows={6} />
-      <Text size="xs"> In game you rated this a: {form.form.Interactive.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.Interactive.rating}/3</Text>
 
     </>);
   }
@@ -55,7 +55,7 @@ function Room(form: any, place: any, setFormData: Function) {
         minRows={4}
         maxRows={6}
       />
-      <Text size="xs"> In game you rated this a: {form.form.GUI.rating}/5</Text>
+      <Text size="xs"> In game you rated this a: {form.form.GUI.rating}/3</Text>
 
     </>);
   }

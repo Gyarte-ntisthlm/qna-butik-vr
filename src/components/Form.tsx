@@ -117,16 +117,6 @@ function Form() {
         // login into firebase using the credentials from the url
         // get the user's data from firebase
         login(parsedID, parsedSecret).then((user:any) => {
-            console.log(user);
-            notifications.showNotification({
-                id: 'login',    
-                title: 'Authentication Successful!',
-                message: user.displayName,
-                color: 'green',
-                autoClose: 500,
-                icon: <Check size={18} />,
-            })
-
             getData(globalUser).then((data) => {
                 
                 if(data === undefined) throw new Error("No data found")
